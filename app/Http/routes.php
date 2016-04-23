@@ -11,7 +11,20 @@
 |
 */
 
-Route::get('/', array(
-    'as'=>'home',
-    'uses'=>'HomeController@home'
+//Route::get('/', array(
+//    'as'=>'home',
+//    'uses'=>'HomeController@home'
+//));
+
+/*use App\User;
+Route::get('/User',function(){
+   $user=User::find(1);
+   print_r($user);
+});*/
+
+Route::get('/Counter',array(
+    'as'=>'Counter',
+    'uses'=>'counterController@home'
 ));
+
+        

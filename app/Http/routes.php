@@ -27,4 +27,19 @@ Route::get('/Counter',array(
     'uses'=>'counterController@home'
 ));
 
-        
+//Route::get('/SecureUpload',array(
+//    'as'=>'Secure',
+//    'uses'=>'SecureController@home'
+//));
+//Route::post('/SecureUpload#',array(
+//    'as'=>'Secure',
+//    'uses'=>'SecureController@upload'
+//));
+Route::get('/SecureUpload', 'SecureController@index');
+//Route::post('/', 'SecureController@uploadFiles');
+Route::post('/Secure',array(
+    'as'=>'Secure-post',
+    'uses'=>'SecureController@uploadFiles'
+));
+
+

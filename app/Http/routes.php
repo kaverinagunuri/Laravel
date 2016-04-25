@@ -42,4 +42,19 @@ Route::post('/Secure',array(
     'uses'=>'SecureController@uploadFiles'
 ));
 
+Route::get('/MultifileUpload', 'MultifileController@index');
+Route::post('/MultifileUpload',array(
+    'as'=>'MultiFile-post',
+    'uses'=>'MultifileController@file'
+));
+Route::get('/CurrencyConvert', 'CurrencyconvertController@index');
+Route::post('/CurrencyConvert',array(
+    'as'=>'Currency-post',
+    'uses'=>'CurrencyconvertController@convertor'
+));
 
+Route::get('/AutoSuggest', 'AutosuggestController@index');
+Route::post('/AutoSuggest',array(
+    'as'=>'Autosuggest-post',
+    'uses'=>'AutosuggestController@suggest'
+));

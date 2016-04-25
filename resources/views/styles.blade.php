@@ -1,9 +1,4 @@
-<html>
-    <head>
-        <title>
-            Secure file upload
-        </title>
-        <style>
+<style>
             html, body {
                 height: 100%;
             }
@@ -45,22 +40,3 @@
                 margin: 20px auto;
             }
         </style>
-    </head>
-    <body>
-       <div class="container">
-            <div class="content">
-           <form action="{{ URL::route('Secure-post') }}" method="post" enctype="multipart/form-data">
-               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <input type="file" name="file">
-        <input type="submit">
-    </form>
-                <p>@if(isset($Secure_value))
-                @foreach($Secure_value as $value)
-                {{ $value}}
-                @endforeach
-                @endif</p>
-            </div>
-       </div>
-    </body>
-</html>
-

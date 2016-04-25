@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>
-            Secure file upload
+            Multiple file upload
         </title>
         <style>
             html, body {
@@ -49,15 +49,17 @@
     <body>
        <div class="container">
             <div class="content">
-           <form action="{{ URL::route('Secure-post') }}" method="post" enctype="multipart/form-data">
-               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <input type="file" name="file">
-        <input type="submit">
+                
+           <form action="{{ URL::route('MultiFile-post') }}" method="post" enctype="multipart/form-data">
+             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          <input type="file" name="upload[]" multiple/>
+            
+            <input type="submit" value="UPLOAD" name="upload"/>
     </form>
-                <p>@if(isset($Secure_value))
-                @foreach($Secure_value as $value)
-                {{ $value}}
-                @endforeach
+               <p>@if(isset($MultiFile_value))
+                
+                {{ $MultiFile_value}}
+               
                 @endif</p>
             </div>
        </div>

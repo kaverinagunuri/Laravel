@@ -27,14 +27,7 @@ Route::get('/Counter',array(
     'uses'=>'counterController@home'
 ));
 
-//Route::get('/SecureUpload',array(
-//    'as'=>'Secure',
-//    'uses'=>'SecureController@home'
-//));
-//Route::post('/SecureUpload#',array(
-//    'as'=>'Secure',
-//    'uses'=>'SecureController@upload'
-//));
+
 Route::get('/SecureUpload', 'SecureController@index');
 //Route::post('/', 'SecureController@uploadFiles');
 Route::post('/Secure',array(
@@ -58,3 +51,24 @@ Route::post('/AutoSuggest',array(
     'as'=>'Autosuggest-post',
     'uses'=>'AutosuggestController@suggest'
 ));
+
+Route::get('/FindReplace', 'FindreplaceController@index');
+Route::post('/FindReplace',array(
+    'as'=>'Findreplace-post',
+    'uses'=>'FindreplaceController@operation'
+));
+Route::get('/TemplateEngine', 'TemplateEngineController@index');
+Route::get('/Transulate', 'TansulateController@index');
+Route::get('/home', array(
+		'as' => 'home',
+		'uses' => 'TansulateController@index'
+	));
+
+Route::get('/english', array(
+		'as' => 'english',
+		'uses' => 'TansulateController@english'
+	));
+Route::get('/deutsch', array(
+		'as' => 'deutsch',
+		'uses' => 'TansulateController@deutsch'
+	));

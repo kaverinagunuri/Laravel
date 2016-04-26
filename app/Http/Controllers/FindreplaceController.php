@@ -18,7 +18,7 @@ use App\User;
 use Illuminate\Support\Facades\DB;
 
 
-class AutosuggestController extends BaseController {
+class FindreplaceController extends BaseController {
 
     use AuthorizesRequests,
         AuthorizesResources,
@@ -27,15 +27,23 @@ class AutosuggestController extends BaseController {
 
     public function index() {
           
-        return view('Autosuggest');
+        return view('Findreplace');
     }
-    public function suggest() {
-          
-      
-       $users = DB::table('cities')
-               ->where('cityName')
-               ->get();
+    public function operation() {
+         $input=Input::all();
+        
+         $replace=$input['replace'];
+         //$text=$input['text'];
+          $find=explode(',',$input['find']);
+         // $find='/'.trim($find).'/'; 
+         //array_map('trim',$fruit);
+   //echo $find;
+      print_r($find);
+    $replace=(empty($replace)==false)?  preg_split('/,\s+/', $input['replace']):"";
+  $text=(empty($find)===FALSE && empty($replace)===FALSE)? str_replace($find, $replace,$input['text']):$input['text'];
+  
+     echo $text; 
+    }
+   
 
-      print_r($users);
-    }
 }

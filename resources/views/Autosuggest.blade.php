@@ -4,7 +4,8 @@
             Auto suggest
         </title>
         @include('styles')
-        <script type="text/javascript" src="/js/.jquery-2.2.2.min.js" />  </script> 
+     
+        <script type="text/javascript" src="/js/jquery-2.2.2.min.js" />  </script> 
       <script type="text/javascript" src="/js/suggest_script.js" /> </script> 
       
         <style>
@@ -39,7 +40,7 @@
     <body>
          <div class="container">
             <div class="content">
-                 <form action="{{ URL::route('Autosuggest-post') }}" method="post" enctype="multipart/form-data">
+               
                <input type="hidden" name="_token" value="{{ csrf_token() }}">
          <input type="text" class="autosuggest"/>
          <br/>
@@ -49,6 +50,6 @@
                 
             </ul>
         </div>
-                 </form>
+                 
             </div></div>
     </body>
